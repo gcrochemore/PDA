@@ -1,4 +1,25 @@
 Rails.application.routes.draw do
+  resources :import_lines,
+            :imports,
+            :account_lines,
+            :third_parties,
+            :accounts,
+            :labels,
+            :property_pictures,
+            :interactions,
+            :interactions_types,
+            :announcements,
+            :properties do
+    member do
+      get 'deactivate'
+      get 'activate'
+    end
+  end
+
+  devise_for :users
+
+  root to: "application#index"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
