@@ -1,0 +1,16 @@
+<% interactions.each do |interaction| %>
+  <div class="row">
+    <div class="col-md-1"><%= interaction.interactions_type.icon.html_safe %></div>
+    <div class="col-md-10">
+      <div class="row">
+        <div class="col-md-9"><%= interaction.date.strftime("%d/%m/%Y %H:%M") %></div>
+        <div class="col-md-3"><%= interaction.interactions_type.name %></div>    
+      </div>
+      <div class="row">
+        <div class="col-md-12"><i><%= interaction.comments %></i></div>
+      </div>
+    </div>
+
+    
+  </div>
+<% end %>

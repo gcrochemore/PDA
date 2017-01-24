@@ -1,0 +1,32 @@
+<%= simple_form_for(@third_party) do |f| %>
+  <% if @third_party.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@third_party.errors.count, "error") %> prohibited this third_party from being saved:</h2>
+
+      <ul>
+      <% @third_party.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.input :name %>
+  </div>
+
+  <div class="field">
+    <%= f.association :label %>
+  </div>
+  <div class="field">
+    <%= f.association :parent %>
+  </div>
+  <div class="field">
+    <%= f.input :merge_id, collection: ThirdParty.order(:name) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= render partial: 'account_lines/show_account_lines', locals: { account_lines: @third_party.all_lines(params[:page]), account: nil, search: ThirdParty.ransack(params[:q]) } %>

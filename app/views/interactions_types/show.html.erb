@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @interactions_type.icon.html_safe %>
+  <%= @interactions_type.name %>
+</p>
+
+<%= link_to 'Edit', edit_interactions_type_path(@interactions_type) %> |
+<%= link_to 'Back', interactions_types_path %>

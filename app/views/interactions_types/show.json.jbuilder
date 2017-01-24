@@ -1,0 +1,1 @@
+json.partial! "interactions_types/interactions_type", interactions_type: @interactions_type

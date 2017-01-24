@@ -1,0 +1,18 @@
+<% announcements.each do |annoucement| %>
+  <div class="row">
+    <div class="col-md-1"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span></div>
+    <div class="col-md-10">
+      <div class="row">      
+        <div class="col-md-6"><%= annoucement.created_at.strftime("%d/%m/%Y") %></div>
+        <div class="col-md-6"><%= annoucement.price %> €</div>
+      </div>
+      <div class="row">
+        <div class="col-md-4"><%= annoucement.publisher %></div>
+        <div class="col-md-8">
+            <%= link_to annoucement.url[annoucement.url.rindex("www")..20]+'[...]', annoucement.url, target: "_blank" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<% end %>
