@@ -7,7 +7,7 @@ class AccountLine < ActiveRecord::Base
   belongs_to :third_party
   belongs_to :label
 
-  default_scope order('debit_date DESC')
+  default_scope { order('debit_date DESC') }
 
   self.per_page = 20
 end
