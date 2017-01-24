@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+ .balance {
+  font-size: 20pt;
+ }
+
+ .balance-negative {
+  color: red;
+ }
+
+ .balance-postive {
+  color: green;
+ }
