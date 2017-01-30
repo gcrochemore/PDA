@@ -1,0 +1,1 @@
+json.array! @interactions_types, partial: 'interactions_types/interactions_type', as: :interactions_type

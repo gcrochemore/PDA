@@ -39,6 +39,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'sqlite3'
+  gem 'seed_dump'
 end
 
 group :development do
@@ -48,3 +49,21 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+gem 'devise'
+gem 'paper_trail'             # Versionning of database objects' changes
+gem 'andand'
+gem 'will_paginate'
+gem 'simple_form'
+gem 'cocoon'
+gem 'ransack'
+
+
+#gem 'execjs'
+#gem 'autoprefixer-rails', ">= 5.2.1", "<6.1"
+#gem 'sprockets'
+#gem 'sprockets-rails'
+#gem 'test-unit'
+
+gem 'ofx-parser', '~> 1.1'

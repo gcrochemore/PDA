@@ -1,0 +1,56 @@
+<h1>Listing imports</h1>
+
+<table>
+  <tr>
+    <th>Import line</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @imports.each do |import| %>
+  <tr>
+    <td><%= import.name %></td>
+    <td><%= link_to 'Show', import %></td>
+    <td><%= link_to 'Edit', edit_import_path(import) %></td>
+    <td><%= link_to 'Destroy', import, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Import', new_import_path %>
+
+<br><br>
+<%
+  ofx = OfxParser::OfxParser.parse(open("#{Rails.root}/tmp/files/0938290J0351485804028209.ofx"))
+%>
+ 
+  <% ofx.bank_account.statement.transactions.each do |transaction| %>
+    <%
+      if transaction.amount.to_f < 0
+        target_account = nil
+        source_account = 1
+        amount = -(transaction.amount.to_f)
+      else
+        target_account = 1
+        source_account = nil
+        amount = transaction.amount.to_f
+      end
+    %>
+    third_party = ThirdParty.create(name: "<%= transaction.payee %>")<br>
+    third_party.save<br>
+    account_line = AccountLine.create(name: "<%= transaction.payee %>",
+      transaction_date: "<%= transaction.date %>", 
+      debit_date: "<%= transaction.date %>", 
+      third_party: third_party, 
+      amount: <%= amount %>, 
+      target_account_id: <%= target_account ? target_account : "nil" %>, 
+      source_account_id: <%= source_account ? source_account : "nil" %>)<br>
+    account_line.save<br>
+  <% end %>
+
+
+    <%= puts ofx.bank_account.statement.transactions.methods.inspect %>
+

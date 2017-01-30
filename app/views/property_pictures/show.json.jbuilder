@@ -1,0 +1,1 @@
+json.partial! "property_pictures/property_picture", property_picture: @property_picture

@@ -1,0 +1,1 @@
+json.array! @property_pictures, partial: 'property_pictures/property_picture', as: :property_picture
