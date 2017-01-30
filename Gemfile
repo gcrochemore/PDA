@@ -65,3 +65,5 @@ gem 'ransack'
 #gem 'sprockets'
 #gem 'sprockets-rails'
 #gem 'test-unit'
+
+gem 'ofx-parser', '~> 1.1'
