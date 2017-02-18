@@ -38,7 +38,7 @@ class ThirdPartiesController < ApplicationController
       @third_party.delete
       @third_party = ThirdParty.find(params[:third_party][:merge_id])
     else
-      @third_party.update_attributes(params[:third_party])
+      @third_party.update(third_party_params)
     end   
     respond_with(@third_party)
   end
@@ -51,5 +51,10 @@ class ThirdPartiesController < ApplicationController
   private
     def set_third_party
       @third_party = ThirdParty.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def third_party_params
+      params.require(:third_party).permit(:name, :label_id, :parent_id)
     end
 end

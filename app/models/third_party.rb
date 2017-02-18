@@ -12,4 +12,8 @@ class ThirdParty < ActiveRecord::Base
   def prix_total
     AccountLine.where('third_party_id = ?', id).sum(:amount)
   end
+
+  def merge_id
+
+  end
 end

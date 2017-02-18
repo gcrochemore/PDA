@@ -1,0 +1,1 @@
+json.partial! "vehicle_kilometric_statements/vehicle_kilometric_statement", vehicle_kilometric_statement: @vehicle_kilometric_statement

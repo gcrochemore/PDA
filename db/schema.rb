@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161026173401) do
+ActiveRecord::Schema.define(version: 20170218174917) do
 
   create_table "account_lines", force: :cascade do |t|
     t.string   "name"
@@ -149,5 +149,22 @@ ActiveRecord::Schema.define(version: 20161026173401) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "vehicle_kilometric_statements", force: :cascade do |t|
+    t.integer  "vehicle_id"
+    t.datetime "date"
+    t.float    "mileage"
+    t.float    "use_duration"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "vehicle_kilometric_statements", ["vehicle_id"], name: "index_vehicle_kilometric_statements_on_vehicle_id"
+
+  create_table "vehicles", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

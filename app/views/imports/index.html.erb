@@ -24,7 +24,9 @@
 
 <br><br>
 <%
-  ofx = OfxParser::OfxParser.parse(open("#{Rails.root}/tmp/files/0938290J0351485804028209.ofx"))
+  #ofx = OfxParser::OfxParser.parse(open("#{Rails.root}/tmp/files/0938290J0351485804028209.ofx"))
+  ofx = OfxParser::OfxParser.parse(open("#{Rails.root}/tmp/files/0938290J0351487448571398.ofx"))
+  
 %>
  
   <% ofx.bank_account.statement.transactions.each do |transaction| %>

@@ -1,0 +1,2 @@
+json.extract! vehicle_kilometric_statement, :id, :vehicle_id, :date, :mileage, :use_duration, :created_at, :updated_at
+json.url vehicle_kilometric_statement_url(vehicle_kilometric_statement, format: :json)

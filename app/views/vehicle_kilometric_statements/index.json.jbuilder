@@ -1,0 +1,1 @@
+json.array! @vehicle_kilometric_statements, partial: 'vehicle_kilometric_statements/vehicle_kilometric_statement', as: :vehicle_kilometric_statement

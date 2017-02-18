@@ -1,50 +1,74 @@
 class AccountLinesController < ApplicationController
-  before_filter :set_account_line, only: [:show, :edit, :update, :destroy]
+  before_action :set_account_line, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
-
+  # GET /account_lines
+  # GET /account_lines.json
   def index
     @account_lines = AccountLine.all
-    respond_with(@account_lines)
   end
 
+  # GET /account_lines/1
+  # GET /account_lines/1.json
   def show
-    respond_with(@account_line)
   end
 
+  # GET /account_lines/new
   def new
     @account_line = AccountLine.new
-    respond_with(@account_line)
   end
 
+  # GET /account_lines/1/edit
   def edit
   end
 
+  # POST /account_lines
+  # POST /account_lines.json
   def create
-    @account_line = AccountLine.new(params[:account_line])
-    if @account_line.label.nil? && !@account_line.third_party.label.nil?
-      @account_line.label = @account_line.third_party.label
+    @account_line = AccountLine.new(account_line_params)
+
+    respond_to do |format|
+      if @account_line.save
+        format.html { redirect_to @account_line, notice: 'Account line was successfully created.' }
+        format.json { render :show, status: :created, location: @account_line }
+      else
+        format.html { render :new }
+        format.json { render json: @account_line.errors, status: :unprocessable_entity }
+      end
     end
-    @account_line.save
-    respond_with(@account_line)
   end
 
+  # PATCH/PUT /account_lines/1
+  # PATCH/PUT /account_lines/1.json
   def update
-    @account_line.update_attributes(params[:account_line])
-    if @account_line.label.nil? && !@account_line.third_party.label.nil?
-      @account_line.label = @account_line.third_party.label
-      @account_line.save
+    respond_to do |format|
+      if @account_line.update(account_line_params)
+        format.html { redirect_to @account_line, notice: 'Account line was successfully updated.' }
+        format.json { render :show, status: :ok, location: @account_line }
+      else
+        format.html { render :edit }
+        format.json { render json: @account_line.errors, status: :unprocessable_entity }
+      end
     end
-    respond_with(@account_line)
   end
 
+  # DELETE /account_lines/1
+  # DELETE /account_lines/1.json
   def destroy
     @account_line.destroy
-    respond_with(@account_line)
+    respond_to do |format|
+      format.html { redirect_to account_lines_url, notice: 'Account line was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
     def set_account_line
       @account_line = AccountLine.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def account_line_params
+      params.require(:account_line).permit(:name, :account_id, :target_account_id, :source_account_id, :transaction_date, :debit_date, :third_party_id, :amount, :label_id)
     end
 end

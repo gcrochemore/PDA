@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Vehicle Kilometric Statements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Vehicle</th>
+      <th>Date</th>
+      <th>Mileage</th>
+      <th>Use duration</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vehicle_kilometric_statements.each do |vehicle_kilometric_statement| %>
+      <tr>
+        <td><%= vehicle_kilometric_statement.vehicle %></td>
+        <td><%= vehicle_kilometric_statement.date %></td>
+        <td><%= vehicle_kilometric_statement.mileage %></td>
+        <td><%= vehicle_kilometric_statement.use_duration %></td>
+        <td><%= link_to 'Show', vehicle_kilometric_statement %></td>
+        <td><%= link_to 'Edit', edit_vehicle_kilometric_statement_path(vehicle_kilometric_statement) %></td>
+        <td><%= link_to 'Destroy', vehicle_kilometric_statement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vehicle kilometric statement', new_vehicle_kilometric_statement_path %>

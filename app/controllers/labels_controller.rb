@@ -21,13 +21,13 @@ class LabelsController < ApplicationController
   end
 
   def create
-    @label = Label.new(params[:label])
+    @label = Label.new(label_params)
     @label.save
     respond_with(@label)
   end
 
   def update
-    @label.update_attributes(params[:label])
+    @label.update(label_params)
     respond_with(@label)
   end
 
@@ -39,5 +39,10 @@ class LabelsController < ApplicationController
   private
     def set_label
       @label = Label.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def label_params
+      params.require(:label).permit(:name, :parent_label_id)
     end
 end

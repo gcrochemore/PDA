@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Vehicle:</strong>
+  <%= @vehicle_kilometric_statement.vehicle %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @vehicle_kilometric_statement.date %>
+</p>
+
+<p>
+  <strong>Mileage:</strong>
+  <%= @vehicle_kilometric_statement.mileage %>
+</p>
+
+<p>
+  <strong>Use duration:</strong>
+  <%= @vehicle_kilometric_statement.use_duration %>
+</p>
+
+<%= link_to 'Edit', edit_vehicle_kilometric_statement_path(@vehicle_kilometric_statement) %> |
+<%= link_to 'Back', vehicle_kilometric_statements_path %>
