@@ -1,88 +1,100 @@
 <nav class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container-fluid" id="header_container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to 'Accueil', '/', class: 'navbar-brand' %>
-    </div>
-    <div class="collapse navbar-collapse" id="navbar-collapse">
-      <ul class="nav navbar-nav ">        
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            CarTracker</a>
-          <ul class="dropdown-menu">
-            <li class="dropdown">
-             <%= link_to('Liste des relevés kilométriques', vehicle_kilometric_statements_path)  %> 
-            </li>      
-            <li class="dropdown">
-             <%= link_to('Liste des vehicles', vehicles_path)  %> 
-            </li>
-          </ul>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav ">        
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            AccountTracker</a>
-          <ul class="dropdown-menu">
-            <li class="dropdown">
-             <%= link_to('Liste des comptes', accounts_path)  %> 
-            </li>      
-            <li class="dropdown">
-             <%= link_to('Liste des tiers', third_parties_path)  %> 
-            </li>   
-            <li class="dropdown">
-             <%= link_to('Liste des labels', labels_path)  %> 
-            </li>    
-            <li class="dropdown">
-             <%= link_to('Liste des imports', imports_path)  %> 
-            </li> 
-          </ul>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav ">        
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            ImmoFinder</a>
-          <ul class="dropdown-menu">
-            <li class="dropdown">
-             <%= link_to('Biens immobilliers', properties_path)  %> 
-            </li>  
-            <li class="dropdown">
-             <%= link_to('Annonces', announcements_path)  %> 
-            </li>  
-            <li class="dropdown">
-             <%= link_to('Type d\'intéractions', interactions_types_path)  %> 
-            </li>
-            <li class="dropdown">
-             <%= link_to('Intéractions', interactions_path)  %> 
-            </li> 
-            <li class="dropdown">
-             <%= link_to('Photos', property_pictures_path)  %> 
-            </li>
-          </ul>
-        </li>
-      </ul>    
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class='glyphicon glyphicon-engrenage glyphicon glyphicon-engrenage-white'></i><%= current_user.email if user_signed_in? %><b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><%= Time.zone.now.to_s %><br><%= Time.zone.to_s %><bR><%= Time.zone.now.utc_offset.to_s %></li>
-          </ul>
-        </li>
-      <% if user_signed_in?  %>
-        <li><%= link_to('Se déconnecter', destroy_user_session_path) %></li>
-      <% else %>
-        <li><%= link_to('Login', new_user_session_path)  %></li>
-      <% end %>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-
-    
-
-
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <%= link_to 'Accueil', '/', class: 'navbar-brand' %>
+    <ul class="nav navbar-nav ">        
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          CV Maker</a>
+        <ul class="dropdown-menu">
+          <li class="dropdown">
+           <%= link_to('Liste des CV', resumes_path)  %> 
+          </li>      
+          <li class="dropdown">
+           <%= link_to('Liste des skills', skills_path)  %> 
+          </li>    
+          <li class="dropdown">
+           <%= link_to('Liste des work experiences', work_experiences_path)  %> 
+          </li>    
+          <li class="dropdown">
+           <%= link_to('Liste des educations', educations_path)  %> 
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ">        
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          CarTracker</a>
+        <ul class="dropdown-menu">
+          <li class="dropdown">
+           <%= link_to('Liste des relevés kilométriques', vehicle_kilometric_statements_path)  %> 
+          </li>      
+          <li class="dropdown">
+           <%= link_to('Liste des vehicles', vehicles_path)  %> 
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ">        
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          AccountTracker</a>
+        <ul class="dropdown-menu">
+          <li class="dropdown">
+           <%= link_to('Liste des comptes', accounts_path)  %> 
+          </li>      
+          <li class="dropdown">
+           <%= link_to('Liste des tiers', third_parties_path)  %> 
+          </li>   
+          <li class="dropdown">
+           <%= link_to('Liste des labels', labels_path)  %> 
+          </li>    
+          <li class="dropdown">
+           <%= link_to('Liste des imports', imports_path)  %> 
+          </li> 
+        </ul>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ">        
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          ImmoFinder</a>
+        <ul class="dropdown-menu">
+          <li class="dropdown">
+           <%= link_to('Biens immobilliers', properties_path)  %> 
+          </li>  
+          <li class="dropdown">
+           <%= link_to('Annonces', announcements_path)  %> 
+          </li>  
+          <li class="dropdown">
+           <%= link_to('Type d\'intéractions', interactions_types_path)  %> 
+          </li>
+          <li class="dropdown">
+           <%= link_to('Intéractions', interactions_path)  %> 
+          </li> 
+          <li class="dropdown">
+           <%= link_to('Photos', property_pictures_path)  %> 
+          </li>
+        </ul>
+      </li>
+    </ul>    
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class='glyphicon glyphicon-engrenage glyphicon glyphicon-engrenage-white'></i><%= current_user.email if user_signed_in? %><b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><%= Time.zone.now.to_s %><br><%= Time.zone.to_s %><bR><%= Time.zone.now.utc_offset.to_s %></li>
+          <% if user_signed_in?  %>
+            <li><%= link_to('Se déconnecter', destroy_user_session_path) %></li>
+          <% else %>
+            <li><%= link_to('Login', new_user_session_path)  %></li>
+          <% end %>
+        </ul>
+      </li>    
+    </ul>
   </div>
 </nav>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Resume:</strong>
+  <%= @resume_has_skill.resume %>
+</p>
+
+<p>
+  <strong>Skill:</strong>
+  <%= @resume_has_skill.skill %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @resume_has_skill.level %>
+</p>
+
+<%= link_to 'Edit', edit_resume_has_skill_path(@resume_has_skill) %> |
+<%= link_to 'Back', resume_has_skills_path %>

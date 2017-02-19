@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170218174917) do
+ActiveRecord::Schema.define(version: 20170219213638) do
 
   create_table "account_lines", force: :cascade do |t|
     t.string   "name"
@@ -55,6 +54,17 @@ ActiveRecord::Schema.define(version: 20170218174917) do
     t.integer  "property_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "educations", force: :cascade do |t|
+    t.integer  "resume_id"
+    t.string   "name"
+    t.string   "scholl"
+    t.date     "begin_date"
+    t.date     "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resume_id"], name: "index_educations_on_resume_id"
   end
 
   create_table "import_lines", force: :cascade do |t|
@@ -122,6 +132,30 @@ ActiveRecord::Schema.define(version: 20170218174917) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "resume_has_skills", force: :cascade do |t|
+    t.integer  "resume_id"
+    t.integer  "skill_id"
+    t.integer  "level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resume_id"], name: "index_resume_has_skills_on_resume_id"
+    t.index ["skill_id"], name: "index_resume_has_skills_on_skill_id"
+  end
+
+  create_table "resumes", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_resumes_on_user_id"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "third_parties", force: :cascade do |t|
     t.string   "name"
     t.integer  "owner_id"
@@ -145,10 +179,9 @@ ActiveRecord::Schema.define(version: 20170218174917) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "vehicle_kilometric_statements", force: :cascade do |t|
     t.integer  "vehicle_id"
@@ -157,14 +190,24 @@ ActiveRecord::Schema.define(version: 20170218174917) do
     t.float    "use_duration"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["vehicle_id"], name: "index_vehicle_kilometric_statements_on_vehicle_id"
   end
-
-  add_index "vehicle_kilometric_statements", ["vehicle_id"], name: "index_vehicle_kilometric_statements_on_vehicle_id"
 
   create_table "vehicles", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "work_experiences", force: :cascade do |t|
+    t.integer  "resume_id"
+    t.string   "name"
+    t.string   "scholl"
+    t.date     "begin_date"
+    t.date     "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resume_id"], name: "index_work_experiences_on_resume_id"
   end
 
 end

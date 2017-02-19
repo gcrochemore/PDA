@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :work_experiences
+  resources :educations
+  resources :resume_has_skills
+  resources :skills
+  resources :resumes
   resources :accounts
   resources :vehicle_kilometric_statements
   resources :vehicles

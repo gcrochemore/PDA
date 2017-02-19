@@ -1,0 +1,13 @@
+<%= simple_form_for(@resume_has_skill) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :resume %>
+    <%= f.association :skill %>
+    <%= f.input :level %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

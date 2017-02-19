@@ -1,0 +1,15 @@
+<%= simple_form_for(@education) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :resume %>
+    <%= f.input :name %>
+    <%= f.input :scholl %>
+    <%= f.input :begin_date, start_year: Date.today.year - 40, end_year: Date.today.year + 1 %>
+    <%= f.input :end_date, start_year: Date.today.year - 40, end_year: Date.today.year + 1 %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

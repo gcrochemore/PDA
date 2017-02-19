@@ -1,0 +1,1 @@
+json.partial! "resume_has_skills/resume_has_skill", resume_has_skill: @resume_has_skill
