@@ -67,3 +67,5 @@ gem 'ransack'
 #gem 'test-unit'
 
 gem 'ofx-parser', '~> 1.1'
+
+gem 'bootstrap-sass', '~> 3.2.0'

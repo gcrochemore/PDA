@@ -41,6 +41,8 @@ GEM
     bcrypt (3.1.11-x86-mingw32)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.2.0.2)
+      sass (~> 3.2)
     builder (3.2.3)
     byebug (9.0.6)
     cocoon (1.2.9)
@@ -182,6 +184,7 @@ PLATFORMS
 
 DEPENDENCIES
   andand
+  bootstrap-sass (~> 3.2.0)
   byebug
   cocoon
   coffee-rails (~> 4.1.0)

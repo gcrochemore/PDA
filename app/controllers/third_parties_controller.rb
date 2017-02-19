@@ -21,7 +21,7 @@ class ThirdPartiesController < ApplicationController
   end
 
   def create
-    @third_party = ThirdParty.new(params[:third_party])
+    @third_party = ThirdParty.new(third_party_params)
     @third_party.save
     respond_with(@third_party)
   end

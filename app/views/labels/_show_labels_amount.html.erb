@@ -25,6 +25,18 @@
         <td><%= link_to 'Destroy', label_c, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    <% label_c.children.each do |label_cc| %>
+    <% if label_cc.prix_total_filtre(@q, @account) != 0 %>
+      <tr>
+        <td>- -</td>
+        <td colspan='2'><%= label_cc.name %></td>
+        <td><%= label_cc.prix_total_filtre(@q, @account) %> €</td>
+        <td><%= link_to 'Show', label_cc %></td>
+        <td><%= link_to 'Edit', edit_label_path(label_cc) %></td>
+        <td><%= link_to 'Destroy', label_cc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  <% end %>
   <% end %>
 <% end %>
 </table>

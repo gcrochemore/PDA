@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :accounts
   resources :vehicle_kilometric_statements
   resources :vehicles
   resources :import_lines,
