@@ -69,3 +69,7 @@ gem 'ransack'
 gem 'ofx-parser', '~> 1.1'
 
 gem 'bootstrap', '~> 4.0.0.alpha6'
+
+gem 'cancancan'
+
+gem 'rolify'
