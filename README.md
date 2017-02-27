@@ -7,9 +7,12 @@
 
 	rails generate scaffold vehicle name:string
 
-
-
 	rails generate scaffold vehicle_kilometric_statement vehicle:references date:datetime mileage:float use_duration:float
+
+	rails generate scaffold vehicle_fuel_intake vehicle:references date:datetime volume:float amount:float
+
+
+
 
 
 

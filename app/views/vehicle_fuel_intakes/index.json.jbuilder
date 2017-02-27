@@ -1,0 +1,1 @@
+json.array! @vehicle_fuel_intakes, partial: 'vehicle_fuel_intakes/vehicle_fuel_intake', as: :vehicle_fuel_intake

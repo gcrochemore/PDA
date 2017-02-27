@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
-  resources :work_experiences
-  resources :educations
-  resources :resume_has_skills
-  resources :skills
-  resources :resumes
-  resources :accounts
-  resources :vehicle_kilometric_statements
-  resources :vehicles
-  resources :import_lines,
+  resources :vehicle_fuel_intakes,
+            :work_experiences,
+            :educations,
+            :resume_has_skills,
+            :skills,
+            :resumes,
+            :accounts,
+            :vehicle_kilometric_statements,
+            :vehicles,
+            :import_lines,
             :imports,
             :account_lines,
             :third_parties,

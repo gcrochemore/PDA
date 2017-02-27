@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Vehicle:</strong>
+  <%= @vehicle_fuel_intake.vehicle %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @vehicle_fuel_intake.date %>
+</p>
+
+<p>
+  <strong>Volume:</strong>
+  <%= @vehicle_fuel_intake.volume %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @vehicle_fuel_intake.amount %>
+</p>
+
+<%= link_to 'Edit', edit_vehicle_fuel_intake_path(@vehicle_fuel_intake) %> |
+<%= link_to 'Back', vehicle_fuel_intakes_path %>

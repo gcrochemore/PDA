@@ -5,5 +5,10 @@
   <%= @vehicle.name %>
 </p>
 
+<%= line_chart @vehicle.vehicle_kilometric_statements.group(:date).sum(:mileage) %>
+
+<%= render 'events', events: @vehicle.events %>
+
+<br>
 <%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
 <%= link_to 'Back', vehicles_path %>
